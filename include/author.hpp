@@ -20,6 +20,8 @@ struct Author {
    * @param age - возраст автора
    * @param sex - биологический пол автора
    */
+  Author(const std::string &fullName, int age, Sex sex);
+
   // setters
   void SetAge(int age);
   void SetSex(Sex sex);
@@ -32,10 +34,7 @@ struct Author {
 
   // === необходимо для тестов ===
   Author() = default;
-
-    Author(const std::string &fullName, int age, Sex sex);
-
-    virtual ~Author() = default;
+  virtual ~Author() = default;
   friend bool operator==(const Author &lhs, const Author &rhs);
   friend bool operator!=(const Author &lhs, const Author &rhs);
 
