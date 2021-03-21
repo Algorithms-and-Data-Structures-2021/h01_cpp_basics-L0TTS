@@ -7,7 +7,7 @@
 ResizeStorageStatus resize_storage(Book *&storage, int size, int new_capacity) {
     // здесь мог бы быть ваш разносторонний и многогранный код ...
     // Tip 1: проведите валидацию аргументов функции
-    if (*&storage == nullptr) {
+    if (storage == nullptr) {
         return ResizeStorageStatus::NULL_STORAGE;
     }
     if (size < 0) {
@@ -34,7 +34,7 @@ BookStore::BookStore(const std::string &name) : name_{name} {
     }
     // здесь мог бы быть ваш сотрясающий землю и выделяющий память код ...
     name_ = name;
-    storage_capacity_= kInitStorageCapacity;
+    storage_capacity_ = kInitStorageCapacity;
     storage_ = new Book[storage_capacity_];
 
 }
@@ -45,7 +45,7 @@ BookStore::~BookStore() {
     // Tip 1: я свободен ..., словно память в куче: не забудьте обнулить указатель
     delete[] storage_;
     storage_ = nullptr;
-    storage_capacity_= 0;
+    storage_capacity_ = 0;
 }
 
 // 4. реализуйте метод ...
@@ -60,7 +60,7 @@ void BookStore::AddBook(const Book &book) {
         }
     }
     storage_size_++;
-    storage_[storage_size_-1]=book;
+    storage_[storage_size_ - 1] = book;
     // Tip 3: не забудьте добавить книгу в наше бездонное хранилище ...
 }
 
